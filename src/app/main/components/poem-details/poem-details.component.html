@@ -1,0 +1,14 @@
+
+<div *ngIf="poemDetail">
+  {{poemDetail.title}}
+  <br>
+  {{poemDetail.author}}
+  <br>
+  {{poemDetail.lines}}
+  <br>
+  {{getState(poemDetail)}}
+  <br>
+
+  <button (click)="addToFavorite(poemDetail)"></button>
+
+</div>

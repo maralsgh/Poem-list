@@ -1,0 +1,12 @@
+<div *ngIf="!favoriteList.length">
+empty list
+</div>
+
+
+<div *ngIf="favoriteList.length">
+  <ul>
+    <li *ngFor="let item of favoriteList">
+      {{item.title}} - {{item.author}} <a [routerLink]="'/poem/' + item.title"> details </a>
+    </li>
+  </ul>
+</div>

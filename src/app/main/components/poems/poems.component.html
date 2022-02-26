@@ -1,0 +1,25 @@
+
+
+<Button *ngIf="!poemsList.length" class="btn btn-primary" (click)="fetchApi()"> fetch api</Button>
+
+<div *ngIf="loading">
+  loading
+</div>
+
+<div *ngIf="poemsList?.length && !loading">
+
+  <select class="form-select" aria-label="Default select example"
+          [(ngModel)]="selectedItem" (change)="onChangeFilter($event)">
+    <option selected>Open this select title</option>
+    <option >Author</option>
+    <option >Title</option>
+  </select>
+
+  <ul>
+    <li *ngFor="let item of filterList">
+      {{item.title}} - {{item.author}} <a [routerLink]="'poem/' + item.title"> details </a>
+    </li>
+  </ul>
+</div>
+
+
