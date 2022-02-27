@@ -1,25 +1,44 @@
 
-
-<Button *ngIf="!poemsList.length" class="btn btn-primary" (click)="fetchApi()"> fetch api</Button>
-
-<div *ngIf="loading">
-  loading
+<div class="wrapper-box text-center my-5 " *ngIf="!poemsList.length">
+  <h2>Welcome to Poem 👋</h2>
+  <p class="text-lead mb-5 text-gray">Click on the bellow button to continue</p>
+  <Button class="btn button-primary button-large"  type="button" [class.disabled]="loading" style="min-width: 200px" (click)="fetchApi()">
+    <span *ngIf="loading" class="spinner-grow spinner-grow-sm me-2"  role="status" aria-hidden="true"></span>
+    <span *ngIf="!loading">Fetch poems</span>
+    <span *ngIf="loading" class="ml-2 d-inline-block" >Loading...</span>
+  </Button>
 </div>
 
-<div *ngIf="poemsList?.length && !loading">
 
-  <select class="form-select" aria-label="Default select example"
-          [(ngModel)]="selectedItem" (change)="onChangeFilter($event)">
-    <option selected>Open this select title</option>
-    <option >Author</option>
-    <option >Title</option>
-  </select>
 
-  <ul>
-    <li *ngFor="let item of filterList">
-      {{item.title}} - {{item.author}} <a [routerLink]="'poem/' + item.title"> details </a>
-    </li>
-  </ul>
+<p *ngIf="errorStatues">
+  <ngb-alert [dismissible]="true" type="danger" >
+    <strong>Failed!</strong> Something went wrong, please try again.
+  </ngb-alert>
+</p>
+
+<div @fade class="card-list" *ngIf="poemsList?.length && !loading">
+  <div class="d-flex justify-content-between mb-3">
+    <h6 class="text-black">List of poems</h6>
+<div >
+  <div class="input-group mb-3">
+    <div class="input-group-prepend input-group-custom">
+      <span class="input-group-text" id="basic-addon1">
+        <img src="assets/images/filter.svg" alt="">
+      </span>
+    </div>
+    <select class="form-select form-custom "
+            [(ngModel)]="selectedItem" (change)="onChangeFilter()">
+      <option >Author</option>
+      <option >Title</option>
+    </select>
+  </div>
 </div>
+  </div>
+  <app-poem-card [data]="filterList"></app-poem-card>
+
+
+</div>
+
 
 

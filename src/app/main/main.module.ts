@@ -7,7 +7,7 @@ import { PoemDetailsComponent } from './components/poem-details/poem-details.com
 import { PoemCardComponent } from './components/poem-card/poem-card.component';
 import {PoemSService} from "./services/poem-s.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {NgbNavModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbAlertModule, NgbNavModule, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import { PoemsComponent } from './components/poems/poems.component';
 import {FavoriteSService} from "./services/favorite-s.service";
 
@@ -25,7 +25,9 @@ import {FavoriteSService} from "./services/favorite-s.service";
     MainRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbNavModule
+    NgbNavModule,
+    NgbAlertModule,
+    NgbTooltipModule
   ],
   providers: [PoemSService , FavoriteSService]
 })

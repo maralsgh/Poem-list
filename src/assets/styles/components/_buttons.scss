@@ -1,0 +1,37 @@
+.button {
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed !important;
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+
+  &-large {
+    padding: 0.5rem 1.5rem !important;
+  }
+
+  &-primary {
+    background-color: $primary !important;
+    color: $white !important;
+  }
+
+  //&-suceess {
+  //  background-color: $success !important;
+  //  color: $background !important;
+  //}
+
+  &-secondary {
+    background-color: $gray-3 !important;
+    color: $primary !important;
+  }
+
+  //&-danger {
+  //  background-color: var(--danger) !important;
+  //  color: var(--white) !important;
+  //}
+}

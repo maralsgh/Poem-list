@@ -1,14 +1,46 @@
+<div *ngIf="!poemDetail.title && !errorStatues" class="d-flex justify-content-center align-items-center" style="height: 250px">
+<div>
+  <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
 
-<div *ngIf="poemDetail">
-  {{poemDetail.title}}
-  <br>
-  {{poemDetail.author}}
-  <br>
-  {{poemDetail.lines}}
-  <br>
-  {{getState(poemDetail)}}
-  <br>
+  </div>
+  <p> Loading...</p>
+</div>
+</div>
 
-  <button (click)="addToFavorite(poemDetail)"></button>
+<p *ngIf="errorStatues">
+  <ngb-alert [dismissible]="true" type="danger" >
+    <strong>Failed!</strong> Something went wrong, please try again.
+  </ngb-alert>
+</p>
+<div *ngIf="poemDetail.title" class="my-3 border rounded p-3" @fade>
+  <div class="d-flex justify-content-between mb-3">
+
+    <div class="my-auto">
+          <span class="text-small  text-gray">
+           <img class="me-1" src="assets/images/pen-fill.svg" alt="pen">
+           Author by: {{poemDetail.author}}
+         </span>
+    </div>
+
+    <div class="d-flex flex-row">
+      <ng-template #tipContent> {{getState(poemDetail) === false? 'Add to' : 'Remove from'}}  favorite </ng-template>
+      <span [ngbTooltip]="tipContent" (click)="addToFavorite(poemDetail)" class="btn button-secondary badge-favorite btn-sm rounded-circle ">
+        <img *ngIf="getState(poemDetail) === false" src="assets/images/heart.svg" alt="">
+      <img *ngIf="getState(poemDetail) === true" src="assets/images/heart-fill.svg" alt="">
+        </span>
+    </div>
+
+
+
+  </div>
+  <h2>{{poemDetail.title}}</h2>
+
+
+  <p *ngFor="let line of poemDetail.lines" class="mt-4">
+    - {{line}}
+  </p>
+</div>
+<div >
+
 
 </div>

@@ -1,0 +1,40 @@
+a{
+  text-decoration: none !important;
+}
+.card-list{
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: $gray-2;
+  .progress {
+    height: 0.1875rem;
+    background: $white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.card-more{
+  color: $black;
+  transition: color .5s;
+  white-space: pre;
+
+  img{
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 50%;
+    background: $gray-3;
+    transition: background .5s;
+  }
+  &:hover{
+    color: $primary;
+    img{
+      background: rgba($primary , .5);
+    }
+  }
+}
+

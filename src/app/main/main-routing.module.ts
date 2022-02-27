@@ -8,7 +8,8 @@ import {PoemsComponent} from "./components/poems/poems.component";
 const routes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
-      { path: '', component: PoemsComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: PoemsComponent },
       { path: 'poem/:title', component: PoemDetailsComponent },
       { path: 'favorite', component: FavoritesComponent },
     ]

@@ -1,0 +1,40 @@
+
+.text-lead{
+  font-size: 1.25rem;
+  font-weight: 400;
+
+}
+
+.form-custom{
+  min-width: 170px;
+  width: auto;
+  border-radius: 0 10rem 10rem 0;
+  border-left-color: white !important;
+  cursor: pointer;
+
+  &:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: #ced4da;
+
+  }
+}
+
+.input-group-custom{
+
+  .input-group-text{
+    border-radius: 10rem 0 0 10rem !important;
+    background: white;
+    padding: 10px;
+  }
+
+}
+
+
+
+@media (max-width: 500px) {
+  .form-custom {
+    min-width:auto;
+
+  }
+  }
