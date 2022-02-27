@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {PoemSService} from "../../services/poem-s.service";
 import {Poem} from "../../models/Poem";
@@ -8,8 +8,8 @@ import {transitionAnimation} from "../../utility/animations";
 @Component({
   selector: 'app-poem-details',
   templateUrl: './poem-details.component.html',
-  styleUrls: ['./poem-details.component.scss'],
-  animations : [transitionAnimation]
+  styleUrls: [ './poem-details.component.scss' ],
+  animations: [ transitionAnimation ]
 })
 export class PoemDetailsComponent implements OnInit {
   title: string = '';
@@ -31,7 +31,7 @@ export class PoemDetailsComponent implements OnInit {
         this.poemDetail = res[0];
 
       }
-    }).catch(()=> this.errorStatues = true);
+    }).catch(() => this.errorStatues = true);
   }
 
   getState(data: Poem) {
@@ -40,7 +40,7 @@ export class PoemDetailsComponent implements OnInit {
 
 
   addToFavorite(data: Poem) {
-      this.favoriteService.addToWishList(data);
+    this.favoriteService.addToWishList(data);
 
   }
 }

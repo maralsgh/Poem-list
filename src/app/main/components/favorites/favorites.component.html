@@ -1,14 +1,14 @@
-
-  <div *ngIf="!favoriteList.length" class="d-flex rounded border justify-content-center align-items-center" style="height: 250px">
+<div *ngIf="!favoriteList.length" class="d-flex rounded border justify-content-center align-items-center"
+     style="height: 250px">
   Favorite list is empty!
+</div>
+
+<div @fade class="card-list" *ngIf="favoriteList?.length">
+  <div class="d-flex justify-content-start mb-3">
+    <h6 class="text-black">List of your favorite poems</h6>
   </div>
-
-  <div @fade class="card-list" *ngIf="favoriteList?.length">
-    <div class="d-flex justify-content-start mb-3">
-      <h6 class="text-black">List of your favorite poems</h6>
-    </div>
-    <app-poem-card [data]="favoriteList"></app-poem-card>
+  <app-poem-card [data]="favoriteList"></app-poem-card>
 
 
-  </div>
+</div>
 

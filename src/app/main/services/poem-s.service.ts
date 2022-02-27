@@ -18,7 +18,7 @@ export class PoemSService {
       .then(res => this.getDataSubscription(<Array<Poem>>res));
   }
 
-  filterByTitle(title : string) : Promise< undefined | Array<Poem>> {
+  filterByTitle(title : string) : Promise< void | Array<Poem>> {
     return this.http.get<Array<Poem>>(this.baseUrl + `title/${title}/author,title,lines`).toPromise();
   }
 
@@ -26,7 +26,7 @@ export class PoemSService {
     return this.dataSub.asObservable();
   }
 
-  getDataSubscription(newProduct: Array<Poem>){
-    this.dataSub.next(newProduct);
+  getDataSubscription(newData: Array<Poem>){
+    this.dataSub.next(newData);
   }
 }
